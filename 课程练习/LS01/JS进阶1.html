@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* 2.25
+    //js中条件控制语句方式 if
+    //js中循环控制语句方式 for while
+    //parseInt() parseFloat();
+    //定义函数function+变量名() 调用函数
+    //数组 字符串
+        var username="zhangsan";
+        var age=10;
+        function setName(){
+            username="lisi";
+        }
+        function setAge(){
+            age=20;
+        }
+        function setInfor(){
+            setName();
+            setAge();
+        }
+        setInfor();
+    */
+   var obj1={"username":"zhangsan"};
+   var obj2=obj1;
+   obj2.username="lisi";
+   console.log(obj1);
+   //obj2与obj1指向的对象一样，obj2修改，obj1随之修改————引用类型
+   var arr1=[1,2,3,4,5];
+   var arr2=arr1;
+   arr2[0]=6;
+   console.log(arr1);
+   //数组同样使用引用类型
+    var obj3={"username":"zhangsan"};
+    var obj4={};
+    var username=obj3.username;
+    obj4.username=username;
+    //==判断两边变量的值
+    var obj5={};
+    var obj6={};
+    console.log(obj5==obj6);
+    //===判断类型还有变量值
+    //如果是引用类型，判断的是指向的内存空间是否相同
+    var obj7={"username":"zhangsan"};
+    function fn1(x){
+        x.username="lisi";
+    }
+    fn1(obj7);
+
+    var x=20;
+    console.log(isNaN(x));
+
+    var str="ab_cd_ef";
+    str.slice(0,-1);
+    str.split("_");
+    //str.slice(截取字符串起始位置，截取字符串的结束位置)
+    //负数可以从反方向计算索引
+    //str.split("分隔符")以特定的分隔符来进行分割字符串，将子串作为数组的数组元素，生成一个数组
+    true+1;//2
+
+    console.log(String({x:1,y:2}));//[object Object]
+</script>
+</html>

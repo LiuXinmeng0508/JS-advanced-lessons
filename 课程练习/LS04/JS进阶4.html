@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj={"username":"zhangsan","age":20};
+    obj._proto_.sex="male";
+    //for in遍历的是对象的所有可枚举属性
+    for(var i in obj){
+        console.log("键名"+i);
+        //obj[变量]
+        console.log("键值"+obj[i]);
+    }
+    //不建议for in遍历数组
+    var arr1=[1,2,3];
+    console.log(Object(arr1));
+    for(var j in arr1){
+        console.log(j);
+    }
+
+    var a=45;
+    //字面量在前，变量在后
+    if(a=54){
+        console.log("判断相等");
+    }
+
+    var x=1;
+    //++x表示先运算再输出,x++表示先输出再运算
+    //++ --自动完成数据类型的隐式转化，转化为数字类型
+    //+=不会进行类型的转化
+    console.log(++x);
+    console.log(x++);
+
+    //左真取右
+    console.log(10&&0);
+            var undefined;
+    //左假取左
+    console.log(undefined&&10);
+
+    //左真取左
+    console.log(10||null);
+    //左假取右
+    console.log(null||10);
+
+    var score=77;
+    if(score>90){
+        console.log("优");
+    }else if(score>75){
+        console.log("良");
+    }else if(score>60){
+        console.log("及格");
+    }else{
+        console.log("不及格");
+    }
+
+    //ES6中实现设置函数参数的默认值
+    funciton sum(x,y,z){
+        x=x||1;
+        y=y||2;
+        z=z||3;
+        return x+y+z;
+    }
+    console.log(sum());
+</script>
+</html>

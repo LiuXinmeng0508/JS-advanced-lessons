@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    function max(a,b){
+        return a>b?a:b;
+    }
+    max(2,3);
+
+    var min=function(x,y){
+        return x>y?y:x;
+    }
+    //不能在min声明前进行调用
+    min(2,3);
+
+    //functioon(arg1,arg2,……,函数体);
+    //执行效率相对较低，但更灵活
+    var fn1=new Function('a','b','return a>b? a:b;');
+    fn1(2,3);
+
+    function test(){
+        console.log(this);
+    }
+    test();
+
+    //对象内部方法调用，this指向调用该方法的对象
+    var obj={
+        x:0;
+        test:function(){
+            console.log(this);
+        }
+    }
+    obj.test();
+
+    var objA={"objName":"AAA"};
+    var objB={"objName":"BBB"};
+    objA.test=function(){
+        console.log(this.objName);
+    }
+    objA.test;
+    //方法.call(当前对象)
+    //将方法的调用执行从原有对象切换为当前对象
+</script>
+</html>

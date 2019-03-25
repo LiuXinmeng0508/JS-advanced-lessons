@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" placeholder="请输入想查找的商品" id="memo"/>
+        <input type="button" value="搜索" onclick="saveStorage('memo');"/>
+        <br>
+        <p>最近搜索</p>
+        <p id="msg"></p>
+    </form>
+</body>
+<script>
+    function saveStorage(id){
+        var data=document.getElementById(id).value;
+        localStorage.setItem(data);
+        loadStorage('msg');
+    }
+    function loadStorage(id){
+        var result='<button>';
+        for (var i=0;i<loadStorage.length;i++){
+            var key=localStorage.key(i);
+            var value=localStorage.getItem(key);
+            result +='<button>'+value;
+        }
+        var target = document.getElementById(id);
+        target.innerHTML = result;
+    }    
+</script>
+</html>

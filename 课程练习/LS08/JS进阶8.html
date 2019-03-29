@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    console.log("小明回家");
+    var xx=["书桌","书包","铅笔盒"];//小明家中
+    console.log("在家-做作业中");
+    function goToStore(){
+        var yy=["文具店老板","出售的文具"];//文具店中
+        console.log("在文具店-买文具中");
+        console.log("在文具店-买文具中 发现没带钱");
+        goToBank();
+        console.log("在文具店-买好文具 返回家");
+    }
+    function goToBank(){
+        var zz=["银行职员","柜员机"];//银行中
+        console.log("在银行-取钱 返回文具店");
+    }
+    console.log("在家-做作业中 发现笔没油了");
+    goToStore();//笔没油了，去商店买笔
+    console.log("在家-继续做作业");
+
+    (function max(x,y){
+        return x>y?x:y;
+    }(2,3));
+
+    var userId=2;
+    document.onclick=function(){
+        alert(userId);
+    }
+    /*很长的一段代码*/
+    if(true){
+        var userId=20;
+    }
+
+    function f(){
+        var getNumFuncs=[];
+        for(var i=0;i<10;i++){
+            getNumFuncs[i]=function(){
+                return i;
+            };
+        }
+        return getNumFuncs;
+    }
+    var tmp=f();
+    tmp[3]();
+
+    function foo(){
+        var arr1=[];
+        for(var i=0;i<10;i++){
+            (function(j){
+                arr1[j]=function(){
+                    return j;
+                }
+            })(i)
+        }
+        return arr1;
+    }
+    var arr2=foo();
+    arr2[0]();
+
+    var spanList=document.getElementsByTagName("span");
+    var show=document.getElementsByClassName("show")[0];
+    for(var i=0;i<spanList.length;i++){
+        spanList[i].onclick=function(){
+            show.innerHTML="导航"+i+"内容"; 
+        }
+    }
+</script>
+</html>

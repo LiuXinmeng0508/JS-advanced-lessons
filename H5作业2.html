@@ -4,32 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>task02</title>
+    <style>
+        .searchfor{
+            width: 250px;
+            height: 35px;
+        }
+        .historyteam{
+            width: 200px;
+            height: 40px;
+        }
+        .clearall{
+            text-align: center;
+            background: rgb(228, 228, 228); 
+            float: right;
+        }
+
+    </style>
 </head>
 <body>
-    <form action="">
-        <input type="text" placeholder="请输入想查找的商品" id="memo"/>
-        <input type="button" value="搜索" onclick="saveStorage('memo');"/>
-        <br>
+
+    <div class="searchfor">
+        <input type="search" id="text" list="oldTable" placeholder="请输入想查找的商品" autocomplete="on">
+        <datalist id="oldTable"></datalist>
+        <input type="button" value="搜索" onclick="setHistory()" style="width:60px;"><br>
+    </div>
+
+    <div class="historyteam">
         <p>最近搜索</p>
-        <p id="msg"></p>
-    </form>
+        <button class="clearall" onclick="clearHistory()">×</button>
+    </div>
+
+    <div id="oldTex"></div>
 </body>
 <script>
-    function saveStorage(id){
-        var data=document.getElementById(id).value;
-        localStorage.setItem(data);
-        loadStorage('msg');
+
+    window.onload = function(){
+        setList();
     }
-    function loadStorage(id){
-        var result='<button>';
-        for (var i=0;i<loadStorage.length;i++){
-            var key=localStorage.key(i);
-            var value=localStorage.getItem(key);
-            result +='<button>'+value;
+    function setList(){
+
+        var oldTable = document.getElementById("oldTable");
+        var oldTex = document.getElementById("oldTex");
+
+        for(var i = 0; i < localStorage.length; i++){
+            var key = localStorage.key(i);
+
+            var new1 = document.createElement("option");
+            new1.id = localStorage.getItem(key);
+            new1.innerHTML = key;
+            oldTable.appendChild(new1);
+
+            var new1 = document.createElement("p");
+            new1.className = "show";
+            new1.id = "show" + localStorage.getItem(key);
+            new1.innerHTML = key;
+            oldTex.appendChild(new1);
         }
-        var target = document.getElementById(id);
-        target.innerHTML = result;
-    }    
+    }
+
+    function setHistory(){
+        var date = new Date().getTime();
+        var text = document.getElementById("text");
+
+        localStorage.setItem(text.value, date);
+        text.value = "";
+        setList();
+        clearList();
+    }
+    function clearList(){
+
+        var oldTex = document.getElementById("oldTex");
+        var oldTable = document.getElementById("oldTable");
+
+        if(oldTable.hasChildNodes()){
+        var length = oldTable.childNodes.length;
+        for(var i = 0; i < length; i++){
+            oldTable.removeChild(oldTable.lastChild);
+        }
+    }
+
+    if(oldTex.hasChildNodes()){
+        var length = oldTex.childNodes.length;
+        for(var i = 0; i < length; i++){
+            oldTex.removeChild(oldTex.lastChild);
+            }
+        }
+    }
+
+    function clearHistory(){
+        clearList();
+        localStorage.clear();
+    }
+
 </script>
 </html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function fn1(){
+        console.log(b);
+        var b=2;
+    }
+    console.log(b);
+
+    function fn1(){
+        fn2();
+        function fn2(){
+            console.log("hello world");
+        }                
+                                       nnbnbnbb                                                ,mmm,,m                                          }
+    fn1();
+    fn2();
+
+    var a=1;
+    var b=2;
+    function fn1(){
+        var b=3;
+        var d=4;
+        console.log(b);
+        function fn2(){
+            b=5;
+            var e=6;
+        }
+        fn2();
+    }
+    fn1();
+
+    var username="jack";
+    function f00(){
+        console.log(username);
+    }
+    function bar(){
+        var username="bill";
+        foo();
+    }
+    bar();
+
+    for(var i=0;i<3;i++){
+        setTimeout(function(){
+            console.log(new Date(),i);
+        },i*1000)
+    }
+
+    if(true){
+        let a=1;
+    }
+    console.log(a);
+
+    //代码执行的上下文，指的是代码执行的时候，相关的上下文环境
+    //函数的调用栈，this的指向，作用域及作用域中变量
+    var a=1;
+    var b=2;
+    function fn1(){
+        var c=3;
+        var d=4;
+        function fn2(){
+            var e=5;
+            var f=6;
+        }
+        fn2();
+    }
+    fn1();
+
+    
+</script>
+</html>

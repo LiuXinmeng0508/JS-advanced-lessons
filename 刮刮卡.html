@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #words{
+        width: 300px;
+        height: 180px;
+        color: red;
+        font-weight: bold;
+        font-size: 32px;
+        text-align: center;
+        position: absolute;
+        line-height: 160px;
+    }
+    #canvas{
+        position: absolute;
+    }
+</style>
+<body>
+    <div id="words">congratulation!</div>
+    <canvas id="canvas" width="300" height="180"></canvas>
+</body>
+<script>
+    var canvas=document.getElementById('canvas');
+    var context=canvas.getContext('2d');
+    context.fillStyle="#797979";
+    context.fillRect(0,0,300,180);
+    canvas.onmousedown=function(){
+        canvas.onmousemove=function(e){
+            context.clearRect(e.offsetX,e.offsetY,12,12);
+        }
+    }
+    canvas.onmouseup=function(){
+        canvas.onmousemove=function(){
+
+        }
+    }
+
+    var imgData=context.getImageData(0,0,300,180);
+    var data=imgData.data;
+    var length=data.length;
+    var transparent=0;
+    for (var i=0;i<length;i+=4){
+        var alpha=data[i+3];
+        if(alpha<10)
+        transparent++;
+    }
+    var percentage=transparent/(length/4);
+    if(percentage>0.85)
+    context.clearRect(0,0,300,180);
+</script>
+</html>

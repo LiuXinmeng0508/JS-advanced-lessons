@@ -39,19 +39,19 @@
         canvas.onmousemove=function(){
 
         }
+        var imgData=context.getImageData(0,0,300,180);
+        var data=imgData.data;
+        var length=data.length;
+        var transparent=0;
+        for (var i=0;i<length;i+=4){
+            var alpha=data[i+3];
+            if(alpha<10)
+            transparent++;
+        }
+        var percentage=transparent/(length/4);
+        if(percentage>0.85)
+        context.clearRect(0,0,300,180);
     }
 
-    var imgData=context.getImageData(0,0,300,180);
-    var data=imgData.data;
-    var length=data.length;
-    var transparent=0;
-    for (var i=0;i<length;i+=4){
-        var alpha=data[i+3];
-        if(alpha<10)
-        transparent++;
-    }
-    var percentage=transparent/(length/4);
-    if(percentage>0.85)
-    context.clearRect(0,0,300,180);
 </script>
 </html>

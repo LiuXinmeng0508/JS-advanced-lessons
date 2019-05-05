@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj1={z:1};
+    var obj2=Object.create(obj1);
+    console.log(obj2._proto_==obj1);
+    obj2.z=3;
+    console.log(obj2.z);
+    //delete仅可以删除对象自身上面的属性
+    delete obj2,z;
+    console.log(obj2,z);
+    obj2.hasOwnProperty('z');
+
+    var obj1={z:1};
+    var obj2=Object.create(obj1);
+    console.log(obj2._proto_);
+    console.log(obj2._proto_._proto_);
+    console.log(Object.prototype);
+    //Object.prototype._proto_==null
+    //原型链的尽头
+    console.log(obj2._proto_._proto_._proto_);
+    obj2.sayHello();
+
+    function Person(username,age){
+        this.username=username;
+        this.age=age;
+        this.sayHello=function(){
+            console.log("hello world");
+        }
+    }
+    var person1=new Person("zhangsan",20);
+    var person2=new Person("lisi",25);
+    console.log(person1._proto_==Person.prototype);
+    console.log(person1,person2);
+    person1.sayHello();
+    person2.sayHello();
+
+    //定义一个car对象，拥有属性height,width,weight
+    //再定义一个smallcar对象，自身拥有color,seatNum属性
+    //让seatNum继承car的所有属性，使用create方法构造函数实现
+    var car={
+        height:150,
+        width:200,
+        weight:2000
+    };
+
+    var smallCar=Object.create(car);
+    smallCar.color="red";
+    smallCar.seatNum=4;
+    console.log(smallCar.height,smallCar.widht);
+    
+    function CreateSmallCar(color,seatNum){
+        this.color=color;
+        this.seatNum=seatNum;
+    }
+    CreateSmallCar.prototype=car;
+    var smallCar=new CreateSmallCar("red",4);
+    
+    /*
+        1.防止变量的污染
+        2.防止变量的非期望共享
+    */
+    (function(j){
+
+    })()
+    for(var i=0;i<5;i++){
+
+    }
+    /*
+        Object.create()
+        Object.defineProperty()
+    */
+</script>
+</html>

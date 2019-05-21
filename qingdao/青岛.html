@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1{
+            position: relative;
+            width: 380px;
+            height: 440px;
+            border: 1px solid rgb(192, 192, 192);
+            overflow: hidden;
+        }
+        #img1{
+            position: absolute;
+            width: 380px;
+            height: 440px;
+            background-image: url(imgs/zhanqiao.jpg);
+            background-size: 100% 55%;
+            background-repeat: no-repeat;
+            transition: all 1s;
+        }
+        #img1:hover{
+            transform: scale(1.2);
+        }
+        #circle{
+            position: absolute;
+            margin-left: 320px;
+            margin-top: 10px;
+            width: 46px;
+            height: 46px;
+            background: orangered;
+            border-radius: 25px;
+            color: white;
+            font-weight: bolder;
+            font-size: 80%;
+            text-align: center;
+            z-index: 99999;
+            line-height: 20px;
+        }
+        #mask{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 380px;
+            height: 242px;
+            background: rgba(119, 119, 119, 0.7);
+            opacity: 0;
+            transition: all 1s;
+        }
+        #mask:hover{
+            opacity: 1;
+        }
+        #tag{
+            position: relative;
+            width: 380px;
+            height: 190px;
+            transition: all 1s;
+            background: white;
+            top: 220px;
+        }
+        #tag:hover{
+            transform: translate(0,-20px);
+        }
+        #org{
+            position: absolute;
+            width: 55px;
+            height: 27px;
+            background: orangered;
+            color: white;
+            font-size: 90%;
+            text-align: center;
+            line-height: 23px;
+            top: -27px;
+        }
+        #info{
+            position: absolute;
+            width: 300px;
+            height: 198px;
+            padding-left: 28px;
+            padding-right: 35px;
+            margin-top: 10px;
+        }
+        #box2{
+            display: none;
+            transition: all 1s;
+        }
+        #box2:hover{
+            display: block;
+        }
+        #bot{
+            width: 380px;
+            height: 90px;
+            position: absolute;
+            color: rgb(175, 175, 175);
+            background: white;
+            margin-left: 20px;
+            top: 415px;
+            font-size: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="img1">
+                <div id="mask"></div>
+        </div>
+        <div id="circle">15<br>五月</div>
+        <div id="tag">
+            <div id="org">照片</div>
+            <div id="info">
+                <h3>青岛栈桥</h3>
+                <p style="color: orangered;">国家AAAA级旅游景区</p>
+                <div id="box2">
+                    青岛栈桥是青岛海滨区的景点之一，是国务院于1982年首批公布的国家级风景名胜区。青岛栈桥位于游人如织的青岛中山路南端，桥身从海岸探入如弯月般的青岛湾深处。桥身供游人参观并在此停靠旅游船，由此乘船可看海上青岛。
+                </div>
+            </div>
+        </div>
+        <div id="bot">
+            10分钟前&nbsp;&nbsp;&nbsp;&nbsp;123评论
+        </div>
+    </div>
+</body>
+</html>

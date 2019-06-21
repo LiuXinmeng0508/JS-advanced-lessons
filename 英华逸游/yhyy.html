@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>英华逸游</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            background: #ddd;
+        }
+        #box0{
+            width: 100%;
+            height: 100%;
+        }
+        #topblack{
+            width: 100%;
+            height: 45px;
+            background: #282828;
+            color: #fff;
+        }
+        #tell{
+            float: left;
+            margin-left: 970px;
+            margin-top: 10px;
+            background: none;
+        }
+        #tell li{
+            list-style: none;
+            float: left;
+            background: none;
+        }
+        #tell li a{
+            margin-left: 40px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 13px;
+            background: none;
+        }
+        #topwhite{
+            width: 100%;
+            height: 80px;
+            background: #e1e1e1;
+        }
+        #nav{
+            margin-left: 115px;
+        }
+        #nav li{
+            width: 110px;
+            list-style: none;
+            float: left;
+            font-size: 18px;
+            margin-top: 13px;
+        }
+        #a1{
+            margin-left: 190px;
+            padding-top: 14px;
+        }
+        #a1 a{
+            text-decoration: none;
+            color: #000;
+        }
+        #a2{
+            margin-left: 50px;
+            padding-top: 14px;
+        }
+        #a2 a{
+            text-decoration: none;
+            color: #000;
+        }
+        #nav li a:hover{
+            color: #cb5405;
+            text-decoration: underline;
+        }
+        #toppic{
+            width: 100%;
+            height: 446px;
+            position: relative;
+            overflow: hidden;
+        }
+        #pic1{
+            width: 4098px;
+            animation: switch 6s ease-out infinite;
+            background: none;
+        }
+        #toppic img{
+            width: 1366px;
+            height: 446px;
+            float: left;
+        }
+        @keyframes switch{
+            0%,20%{
+                margin-left: 0;
+            }
+            35%,65%{
+                margin-left: -1366px;
+            }
+            80%,100%{
+                margin-left: -2732px;
+            }
+        }
+        #text1{
+            list-style: none;
+            position: absolute;
+            left: 190px;
+            top: 80px;
+            background: none;
+        }
+        #text1 li{
+            line-height: 28px;
+            background: none;
+        }
+        #search1{
+            position: absolute;
+            border: 6px solid rgba(40,40,40,0.6);
+            border-radius: 8px;
+            left: 415px;
+            top: 330px;
+            width: 595px;
+            height: 69px;
+        }
+        #c1{
+            position: relative;
+            width: 150px;
+            height: 59px;
+            background: #d3d3d8;
+            background-image: url(img/position.png);
+            background-repeat: no-repeat;
+            background-position: 20px 15px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border: #d3d3d8;
+            color: #535353;
+            font-size: 15px;
+            outline: none;
+        }
+        #c2{
+            position: absolute;
+            left: 150px;
+            width: 310px;
+            height: 59px;
+            font-size: 15px;
+            background: #fff;
+        }
+        #c3{
+            position: absolute;
+            left: 460px;
+            width: 125px;
+            height: 59px;
+            background: #cb5405;
+            background-image: url(img/search.png);
+            background-repeat: no-repeat;
+            background-position: 45px 15px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border: #cb5405;
+            outline: none;
+        }
+        #box_airport{
+            position: relative;
+            width: 1200px;
+            height: 410px;
+            overflow: hidden;
+        }
+        #pic2{
+            position: absolute;
+            width: 935px;
+            height: 364px;
+            left: 80px;
+            top: 600px;
+            background-image: url(img/Sbanner2.jpg);
+            background-repeat: no-repeat;
+        }
+        #text2{
+            margin-left: 545px;
+            margin-top: 35px;
+            background: none;
+        }
+        #text2 li{
+            list-style: none; 
+            line-height: 27px;
+            background: none;
+        }
+        #tag1{
+            position: absolute;
+            width: 265px;
+            height: 364px;
+            background: #1c396f;
+            background-image: url(img/car.png);
+            background-repeat: no-repeat;
+            background-position: 90px 80px;
+            transition: all 1s;
+            left: 1015px;
+            top: 600px;
+        }
+        #tag1:hover{
+            transform: translate(-20px,0);
+        }
+        #tag1 input{
+            width: 180px;
+            height: 53px;
+            border-radius: 7px;
+            border: 1px solid #fff;
+            color: #fff;
+            margin-left: 50px;
+            margin-top: 55px;
+            background: none;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        #tag1 input:hover{
+            transform: scale(1.05);
+            transition:all 0.4s;
+        }
+        #hot{
+            position: absolute;
+            top: 980px;
+            left: 43%;
+            margin-bottom: 35px;
+        }
+        #pic3{
+            position: relative;
+        }
+        #d1{
+            position: absolute;
+            background: #000;
+            width: 588px;
+            height: 490px;
+            background-image: url(img/hot1.jpg);
+            background-repeat: no-repeat;
+            top: 520px;
+            
+        }
+        #d1:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #d1 p{
+            margin-left: 40px;
+        }
+        #d2{
+            position: absolute;
+            background: #000;
+            width: 588px;
+            height: 525px;
+            background-image: url(img/hot2.jpg);
+            background-repeat: no-repeat;
+            top: 1020px;
+            
+        }
+        #d2:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #d2 p{
+            margin-left: 40px;
+        }
+        #d3{
+            position: absolute;
+            width: 608px;
+            height: 292px;
+            background-image: url(img/hot3.jpg);
+            background-repeat: no-repeat;
+            top: 520px;
+            left: 593px;
+        }
+        #d3:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #mask1{
+            position: absolute;
+            width: 609px;
+            height: 85px;
+            background: rgba(41, 41, 41, 0.7);
+            top: 207px;
+            left: -1px;
+        }
+        #mask1 p{
+            margin-left: 30px;
+        }
+        #d4{
+            position: absolute;
+            width: 608px;
+            height: 357px;
+            background-image: url(img/hot4.jpg);
+            background-repeat: no-repeat;
+            top: 817px;
+            left: 593px;
+        }
+        #d4:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #mask2{
+            position: absolute;
+            width: 609px;
+            height: 85px;
+            background: rgba(41, 41, 41, 0.7);
+            top: 272px;
+            left: -1px;
+        }
+        #mask2 p{
+            margin-left: 30px;
+        }
+        #d5{
+            position: absolute;
+            width: 608px;
+            height: 365px;
+            background-image: url(img/hot5.jpg);
+            background-repeat: no-repeat;
+            top: 1180px;
+            left: 593px;
+        }
+        #d5:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #mask3{
+            position: absolute;
+            width: 609px;
+            height: 85px;
+            background: rgba(41, 41, 41, 0.7);
+            top: 280px;
+            left: -1px;
+        }
+        #mask3 p{
+            margin-left: 30px;
+        }
+        #visa{
+            position: absolute;
+            top: 2150px;
+            left: 34%;
+        }
+        #visa li{
+            list-style: none;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        #pic4{
+            position: relative;
+            top: 1710px;
+            left: 1%;
+        }
+        .container{
+            width: 1208px;
+        }
+        .row{
+            
+        }
+        #e1{
+            position: relative;
+            width: 398px;
+            height: 555px;
+            background-image: url(img/visa1.jpg);
+            background-repeat: no-repeat;
+            margin-right: 4px;
+        }
+        #e1:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #mask4{
+            position: absolute;
+            width: 399px;
+            height: 70px;
+            background: rgba(41, 41, 41, 0.7);
+            top: 485px;
+            left: -1px;
+        }
+        #mask4 p{
+            position: absolute;
+            top: 25px;
+            left: 45px;
+        }
+        #e2{
+            width: 397px;
+            height: 275px;
+            background-image: url(img/visa2.jpg);
+            background-repeat: no-repeat;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+        #e2:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #mask5{
+            position: absolute;
+            width: 398px;
+            height: 48px;
+            background: rgba(41, 41, 41, 0.7);
+            top: 227px;
+            left: -1px;
+        }
+        #mask5 p{
+            position: absolute;
+            top: 12px;
+            left: 40px;
+        }
+        #e3{
+            width: 398px;
+            height: 275px;
+            background-image: url(img/visa3.jpg);
+            background-repeat: no-repeat;
+            margin-bottom: 4px;
+        }
+        #e3:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #mask6{
+            position: absolute;
+            width: 399px;
+            height: 48px;
+            background: rgba(41, 41, 41, 0.7);
+            top: 227px;
+            left: -1px;
+        }
+        #mask6 p{
+            position: absolute;
+            top: 12px;
+            left: 40px;
+        }
+        #e4{
+            width: 396px;
+            height: 275px;
+            background-image: url(img/visa4.jpg);
+            background-repeat: no-repeat;
+            margin-right: 4px;
+        }
+        #e4:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #mask7{
+            position: absolute;
+            width: 397px;
+            height: 50px;
+            background: rgba(41, 41, 41, 0.7);
+            top: 225px;
+            left: -1px;
+        }
+        #mask7 p{
+            position: absolute;
+            top: 12px;
+            left: 40px;
+        }
+        #e5{
+            width: 398px;
+            height: 275px;
+            background-image: url(img/visa5.jpg);
+            background-repeat: no-repeat;
+        }
+        #e5:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+            box-shadow: 2px 4px 6px #000;
+        }
+        #mask8{
+            position: absolute;
+            width: 397px;
+            height: 50px;
+            background: rgba(41, 41, 41, 0.7);
+            top: 225px;
+            left: -1px;
+        }
+        #mask8 p{
+            position: absolute;
+            top: 12px;
+            left: 40px;
+        }
+        #more1{
+            position: relative;
+            width: 235px;
+            height: 53px;
+            font-size: 22px;
+            background: none;
+            border-radius: 7px;
+            border: 1px solid #000;
+            top: 1740px;
+            left: 42%;
+            margin-bottom: 100px;
+        }
+        #more1:hover{
+            transform: scale(1.05);
+            transition:all 0.6s;
+        }
+        #longpic{
+            position: relative;
+            top: 1710px;
+        }
+        .scale img{
+            background-size:contain;
+            width: 100%;
+            height: auto;
+        }
+        #wish{
+            position: relative;
+            width: 100%;
+            height: 931px;
+            padding-top: 30px;
+            background-image: url(img/back.png);
+            background-repeat: no-repeat;
+            top: 1680px;
+            text-align: center;
+        }
+        #wish li{
+            list-style: none;
+            background: none;
+        }
+        #pic5{
+            width: 1200px;
+            margin-top: 50px;
+        }
+        #f1{
+            width: 496px;
+            height: 350px;
+            background-image: url(img/mission1.jpg);
+            background-repeat: no-repeat;
+        }
+        #f2{
+            width: 704px;
+            height: 350px;
+            background: rgba(28, 80, 128, 0.9);
+            padding-left: 90px;
+            padding-right: 95px;
+        }
+        #f3{
+            width: 1200px;
+            height: 472px;
+            background-image: url(img/mission2.jpg);
+        }
+        #f4{
+            width: 1200px;
+            height: 400px;
+            background: #1c5080;
+            padding-left: 125px;
+            padding-right: 135px;
+            padding-top: 45px;
+        }
+        #g1{
+            width: 305px;
+            height: 350px;
+            background: #1c5080;
+            margin-right: 8px;
+        }
+        #g1:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+        }
+        #g2{
+            width: 305px;
+            height: 350px;
+            background: #1c5080;
+        }
+        #g2:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+        }
+        #g3{
+            width: 305px;
+            height: 350px;
+            background: #1c5080;
+        }
+        #g3:hover{
+            transform: scale(1.02);
+            transition:all 0.4s;
+        }
+        #bottom_black{
+            position: relative;
+            width: 100%;
+            height: 530px;
+            background: #000;
+            color: #fff;      
+            top: 2170px;
+            padding-left: 115px;
+            padding-top: 45px;    
+        }
+        #tables{
+            background: none;
+            position: absolute;
+            top: 150px;
+            text-align: center;
+        }
+        #table1{
+            margin-bottom: 20px;
+        }
+        #table2{
+            margin-bottom: 15px;
+        }
+        #table3{
+            margin-bottom: 15px;
+        }
+        #bottom_black p{
+            position: absolute;
+            background: none;
+            bottom: 100px;
+            left: 35%;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <div id="box0">
+        <?--顶部黑色长条条-->
+        <div id="topblack">
+            <ul id="tell">
+                <li><img src="img/tell.png" alt="" style="background: none;"></li>
+                <li><p style="background: none;">&nbsp;400-808-8682</p></li>
+                <li><a href="">请登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</a></li>
+            </ul>                
+        </div>
+
+        <?--白框logo导航长条条-->       
+        <div id="topwhite">
+            <nav class="navbar navbar-expand-sm navbar-white fixed-top">
+                <ul id="nav" class="navbar-nav">
+                    <li><img src="img/logo.png" alt=""></li>
+                    <li id="a1" style="width: 80px;" class="nav-item"><a href="">首页</a></li>
+                    <li id="a2" class="nav-item"><a href="">热门路线</a></li>
+                    <li id="a2" class="nav-item"><a href="">签证推荐</a></li>
+                    <li id="a2" class="nav-item"><a href="">使命愿景</a></li>
+                </ul>
+            </nav>
+        </div>        
+
+        <?--死亡轮播大图-->
+        <div id="toppic">
+            <div id="pic1">
+                <img src="img/banner.jpg" alt="">
+                <img src="img/banner2.jpg" alt="">
+                <img src="img/banner.jpg" alt="">
+            </div>
+            <ul id="text1">
+                <li style="font-size: 45px; color: rgba(255, 255, 255, 0.8); font-weight: 100; margin-bottom: 20px;">悠游古欧洲&nbsp;遍览德法瑞意</li>
+                <li style="color: rgba(255, 255, 255, 0.5);">————————————————</li>
+                <li style="font-size: 17px; color: rgba(255, 255, 255, 0.8);">巴黎卢浮宫、塞纳河游船、凡尔赛宫</li>
+                <li style="font-size: 17px; color: rgba(255, 255, 255, 0.8);">少女峰、大运河游船、金色列车、西庸城堡</li>
+                <li style="color: rgba(255, 255, 255, 0.5);">————————————————————</li>
+            </ul>
+            <div id="search1">
+                <input type="button" id="c1" value="目的地">
+                <input type="text" name="search" placeholder="&nbsp;|&nbsp;日本&nbsp;&nbsp;美国&nbsp;&nbsp;英国&nbsp;&nbsp;地中海" id="c2">
+                <input type="button" id="c3">
+            </div>
+        </div>
+
+        <?--机场也不省钱啊-->
+        <div id="box_ariport">
+            <div id="pic2">
+                <ul id="text2">
+                    <li style="font-size: 32px; color:#fff; margin-bottom: 15px;">机场接送&nbsp;&nbsp;省钱省心</li>
+                    <li style="font-size: 17px; color:#fff;">提供上海、苏州、无锡各市</li>
+                    <li style="font-size: 17px; color:#fff;">往返机场、码头接送服务，更有包车服务</li>
+                </ul>
+            </div>
+            <div id="tag1">
+                <p style="font-size: 25px; color:#fff; margin-left: 88px;margin-top: 185px; background: none;">车辆接送</p>
+                <input type="button" value="查看详情">
+            </div>
+        </div>
+
+        <?--冷门线路-->
+        <div id="hot" class="container-fluid">
+            <p style="font-size: 35px;">热&nbsp;门&nbsp;线&nbsp;路</p>
+            <p style="font-size: 15px;">&nbsp;&nbsp;&nbsp;popular&nbsp;tourist&nbsp;routes</p>
+        </div>
+
+        <?--死亡5格布局-->
+        <div class="container" id="pic3">
+            <div class="row">
+                <div id="d1" class="col-md-6 col-xs-12">
+                    <p style="background: none; color: #fff; font-size: 20px; margin-top: 400px;">海南三亚5天4晚，纯玩、4晚红树林度假王国</p>
+                    <p style="background: none; color: #fff; font-size: 25px;">￥2580/人起</p>
+                </div>
+                <div id="d2" class="col-md-6 col-xs-12">
+                    <p style="background: none; color: #fff; font-size: 20px; margin-top: 445px;">德法意瑞欧洲4国，ABCD任意线路由您挑选</p>
+                    <p style="background: none; color: #fff; font-size: 25px;">￥7999/人起</p>
+                </div>
+                <div id="d3" class="col-md-6 col-xs-12">
+                    <div id="mask1">
+                        <p style="background: none; color: #fff; font-size: 20px; margin-top: 5px;">曼谷+芭提雅&nbsp;国际五星，赠送2220大礼包，绝无自费</p>
+                        <p style="background: none; color: #fff; font-size: 25px;">￥2799/人起</p>
+                    </div>
+                </div>
+                <div id="d4" class="col-md-6 col-xs-12">
+                    <div id="mask2">
+                        <p style="background: none; color: #fff; font-size: 20px; margin-top: 5px;">日本本州游&nbsp;樱花、寿司、温泉、美食</p>
+                        <p style="background: none; color: #fff; font-size: 25px;">¥5399/人起</p>
+                    </div>
+                </div>
+                <div id="d5" class="col-md-6 col-xs-12">
+                    <div id="mask3">
+                        <p style="background: none; color: #fff; font-size: 20px; margin-top: 5px;">斯里兰卡7天6晚全景游&nbsp;&nbsp;保证入住2晚香格里拉</p>
+                        <p style="background: none; color: #fff; font-size: 25px;">￥7999/人起</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?--也办不起签证-->
+        <ul id="visa" class="container-fluid">
+            <li style="font-size: 35px;">签&nbsp;&nbsp;证&nbsp;&nbsp;推&nbsp;&nbsp;荐</lo>
+            <li style="font-size: 15px;">Visa&nbsp;recommendation</li>
+            <li style="font-size: 18px;">热门：&nbsp;日本&nbsp;&nbsp;&nbsp;马来西亚&nbsp;&nbsp;&nbsp;美国&nbsp;&nbsp;&nbsp;意大利&nbsp;&nbsp;&nbsp;加拿大&nbsp;&nbsp;&nbsp;新加坡</li>
+        </ul> 
+
+        <?--又一个死亡5格盒子-->
+        <div class="container" id="pic4">
+            <div class="row">
+                <div id="e1" class="col-md-4 col-xs-6">
+                    <div id="mask4"><p style="background: none; color: #fff; font-size: 20px;">日本旅游签证&nbsp;&nbsp;¥420/人</p></div>
+                </div>
+                <div id="e2" class="col-md-4 col-xs-6">
+                    <div id="mask5"><p style="background: none; color: #fff; font-size: 20px;">新加坡旅游签证&nbsp;&nbsp;¥370/人</p></div>
+                </div>
+                <div id="e3" class="col-md-4">
+                    <div id="mask6"><p style="background: none; color: #fff; font-size: 20px;">马来西亚旅游签证&nbsp;&nbsp;¥450/人</p></div>
+                </div>
+                <div id="e4" class="col-md-4">
+                    <div id="mask7"><p style="background: none; color: #fff; font-size: 20px;">申根旅游签证&nbsp;&nbsp;¥999/人</p></div>
+                </div>
+                <div id="e5" class="col-md-4 col-xs-6">
+                    <div id="mask8"><p style="background: none; color: #fff; font-size: 20px;">美国旅游签证&nbsp;&nbsp;¥1380/人</p></div>
+                </div>
+            </div>
+        </div>
+        <input type="button" value="查&nbsp;看&nbsp;更&nbsp;多&nbsp;&nbsp;>" id="more1">
+
+        <?--这个长条我要怎么藏起来-->
+        <div id="longpic" class="scale">
+            <img src="img/Bbanner.jpg" alt="">
+        </div>
+
+        <?--使命是什么？愿景是不挂科-->
+        <ul id="wish" class="container-fluid">
+            <li style="font-size: 35px; margin-top: 45px;">使命与愿景</li>
+            <li style="font-size: 15px; margin-top: 15px;">让旅游回归本质，体验纯粹旅游</li>
+
+            <?--怎么又是死亡盒子,wsl-->
+            <div class="container" id="pic5">
+                <div class="row">
+                    <div id="f1" class="col-md-5 col-xs-12"></div>
+                    <div id="f2" class="col-md-7 col-xs-12">
+                        <h3 style="color: #fff; background: none; margin-bottom: 27px; margin-top: 95px;">服务理念及优势</h3>
+                        <p style="color:#fff; background: none; font-size: 16px; line-height: 30px;" align="left">
+                                &nbsp;&nbsp;&nbsp;“英华逸游”通过重新打造旅游全程中的产品线路设计、出行交通方案、陪游向导服务、增值关怀项目等，为客户提供高品质的旅游体验。英华逸游在泰国、欧洲、等多个国家拥有丰富的旅游资源，同时致力于给用户提供性价比高的产品和服务。
+                        </p>
+                    </div>
+                    <div id="f3" class="col-md-12"></div>
+                </div>
+                <div class="row" id="f4">
+                    <div id="g1" class="col-md-4 col-xs-12">
+                        <img src="img/rorate_icon1.png" alt="" style="background: none;">
+                        <p style="background: none; margin-top: 35px; color: #fff; font-size: 15px;">旅游达人精心设计、基于口碑反复打磨，</p>
+                        <pst style="background: none; color: #fff; font-size: 15px;">全网最好，敢跟任何产品比</p>
+                    </div>
+                    <div id="g2" class="col-md-4 col-xs-12">
+                            <img src="img/rorate_icon2.png" alt="" style="background: none;">
+                        <p style="background: none; margin-top: 35px; color: #fff; font-size: 15px;">不推自费，</p>
+                        <p style="background: none; color: #fff; font-size: 15px;">不进垃圾购物店和伪景点</p>
+                    </div>
+                    <div id="g3" class="col-md-4 col-xs-12">
+                            <img src="img/rorate_icon3.png" alt="" style="background: none;">
+                        <p style="background: none; margin-top: 35px; color: #fff; font-size: 15px;">独立成团不散拼，</p>
+                        <p style="background: none; color: #fff; font-size: 15px;">只跟亲朋好友一起玩，每天发团</p>
+                    </div>
+                </div>                
+            </div>
+        </ul>
+
+        <?--底部黑粗长条条-->
+        <div id="bottom_black">
+            <div id="tables">
+            <table id="table1" style="background-color: #000">
+                <tr>
+                    <td style="font-weight: 700;">合作伙伴&nbsp;&nbsp;&nbsp;</td>
+                    <td><img src="img/xiecheng.jpg" alt="">&nbsp;&nbsp;</td>
+                    <td><img src="img/feizhu.jpg" alt="">&nbsp;&nbsp;</td>
+                    <td><img src="img/quna.jpg" alt="">&nbsp;&nbsp;</td>
+                    <td><img src="img/sl.jpg" alt=""></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>携程网</td>
+                    <td>阿里飞猪</td>
+                    <td>去哪儿</td>
+                    <td>苏州旅游局</td>
+                </tr>
+            </table>
+            <table id="table2">
+                <tr>
+                    <td style="font-weight: 700;">热门位置&nbsp;&nbsp;&nbsp;</td>
+                    <td style="width: 40px;">韩国</td>
+                    <td style="width: 40px;">日本</td>
+                    <td style="width: 45px;">菲律宾</td>
+                    <td style="width: 40px;">越南</td>
+                    <td style="width: 45px;">老挝</td>
+                    <td style="width: 45px;">柬埔寨</td>
+                    <td style="width: 40px;">泰国</td>
+                    <td style="width: 65px;">马来西亚</td>
+                    <td style="width: 45px;">新加坡</td>
+                    <td style="width: 75px;">印度尼西亚</td>
+                    <td style="width: 45px;">印度</td>
+                    <td style="width: 65px;">斯里兰卡</td>
+                    <td>土耳其</td>
+                    <td style="width: 50px;">阿联酋</td>
+                    <td>西班牙</td>
+                    <td style="width: 50px;">意大利</td>
+                    <td style="width: 40px;">希腊</td>
+                    <td style="width: 40px;">法国</td>
+                    <td>比利时</td>
+                    <td style="width: 40px;">荷兰</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>英国</td>
+                    <td>瑞士</td>
+                    <td>奥地利</td>
+                    <td>德国</td>
+                    <td>匈牙利</td>
+                    <td>俄罗斯</td>
+                    <td>捷克</td>
+                    <td>芬兰</td>
+                    <td>葡萄牙</td>
+                    <td>冰岛</td>
+                    <td>美国</td>
+                    <td>加拿大</td>
+                    <td>巴西</td>
+                    <td>阿根廷</td>
+                    <td>澳大利亚</td>
+                    <td>新西兰</td>
+                </tr>
+            </table>
+            <table id="table3">
+                <tr>
+                    <td style="font-weight: 700;">主题服务&nbsp;&nbsp;&nbsp;</td>
+                    <td style="width: 65px;">海岛度假</td>
+                    <td style="width: 65px;">历史文化</td>
+                    <td style="width: 65px;">探索冒险</td>
+                    <td style="width: 65px;">美食购物</td>
+                    <td style="width: 65px;">都市生活</td>
+                    <td style="width: 65px;">海外游学</td>
+                    <td style="width: 65px;">邮轮度假</td>
+                    <td style="width: 65px;">蜜月摄影</td>
+                    <td style="width: 65px;">亲子乐园</td>
+                </tr>
+            </table>
+            <table id="table4">
+                <tr>
+                    <td style="font-weight: 700;">友情链接&nbsp;&nbsp;&nbsp;</td>
+                    <td style="width: 65px;">马蜂窝</td>
+                    <td style="width: 65px;">穷游</td>
+                    <td>booking</td>
+                    <td>苏州旅游局</td>
+                    <td>驴友网</td>
+                    <td style="width: 120px;">吾爱全球签证中心</td>
+                    <td style="width: 65px;">酒店团购</td>
+                    <td style="width: 90px;">携程旅游攻略</td>
+                    <td style="width: 90px;">天巡职航在线</td>
+                    <td style="width: 90px;">满天飞旅游网</td>
+                    <td style="width: 75px;">中国旅游网</td>
+                    <td style="width: 50px;">澳乐网</td>
+                    <td>背包兔旅游行程</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>出境旅游</td>
+                    <td>国际酒店</td>
+                    <td>广州旅行社</td>
+                    <td>出境旅游</td>
+                    <td>517旅行</td>
+                    <td>花生游</td>
+                    <td>家园网</td>
+                    <td>海外婚礼</td>
+                </tr>
+            </table>
+            </div>
+            <p>苏ICP备14019690号、2014-2017&nbsp;&nbsp;&nbsp;@苏州英华国际旅游有限公司&nbsp;版权所有</p>
+        </div>
+    </div>
+</body>
+<script></script>
+</html>
